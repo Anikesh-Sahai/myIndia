@@ -1,0 +1,42 @@
+const myConstants = {
+  // ERRORS
+  CAST_ERROR: "CastError",
+  VALIDATION_ERROR: "ValidationError",
+  DUPLICATE_FIELD_ERROR_CODE: "11000",
+  JSON_WEB_TOKEN_ERROR: "JsonWebTokenError",
+  JSON_WEB_TOKEN_EXPIRED_ERROR: "TokenExpiredError",
+  ERROR: "error",
+  FAIL: "fail",
+
+  // ENVIRONMENT VARIABLES
+  ENV_DEVELOPMENT: "Development",
+  ENV_PRODUCTION: "Production",
+
+  // EVENTS
+  UNHANDLED_REJECTION_EVENT: "unhandledRejection",
+
+  // STATUS CODE
+  OK_CODE: 200,
+  CREATED_CODE: 201,
+  NO_CONTENT_CODE: 204,
+  BAD_REQUEST_CODE: 400,
+  UNAUTHORIZED_CODE: 401,
+  FORBIDDEN_CODE: 403,
+  NOT_FOUND_CODE: 404,
+  INTERNAL_SERVER_ERROR_CODE: 500,
+
+  //DEFAULT LIMITS
+  DEFAULT_DOCUMENT_LIMIT: 20,
+
+  // ROLES
+  ROLE_ADMIN: "admin",
+  ROLE_USER: "user",
+
+  // MODEL VARIABLES
+  MIN_EIGHT_CHARACTER: 8,
+
+  // SUCCESS
+  SUCCESS: 'success',
+};
+
+module.exports = myConstants;
