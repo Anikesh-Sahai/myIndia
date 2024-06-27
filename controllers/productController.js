@@ -1,7 +1,7 @@
 const Product = require("../models/productModel");
 const APIFeatures = require("../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync");
-const AppError = require('../utils/appError')
+const AppError = require("../utils/appError");
 
 const {
   OK_CODE,
@@ -70,7 +70,7 @@ exports.getAdminProducts = catchAsync(async (req, res, next) => {
     results: products.length,
     data: {
       products,
-    }
+    },
   });
 });
 
@@ -79,9 +79,9 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    return next(new AppError("Product not found", 404));
+    return next(new AppError("Product not found", NOT_FOUND_CODE));
   }
- 
+
   product.active = false;
   await product.save();
 
@@ -96,7 +96,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
-    return next(new AppError("Product not found", 404));
+    return next(new AppError("Product not found", NOT_FOUND_CODE));
   }
 
   product = await Product.findByIdAndUpdate(req.params.id, req.body, {

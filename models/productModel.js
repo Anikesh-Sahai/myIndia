@@ -20,7 +20,7 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please Enter Product Category"],
     },
-    Stock: {
+    stock: {
       type: Number,
       required: [true, "Please Enter product Stock"],
       maxLength: [4, "Stock cannot exceed 4 characters"],
@@ -48,6 +48,9 @@ const ProductSchema = new mongoose.Schema(
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
   }
 );
+
+ProductSchema.index({ name: "text", category: 1 });
+ProductSchema.index({ user: 1 });
 
 const Product = mongoose.model("Product", ProductSchema);
 module.exports = Product;

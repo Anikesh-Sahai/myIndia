@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
-const AppError = require('../utils/appError')
+const AppError = require("../utils/appError");
 
 const { promisify } = require("util");
 const crypto = require("crypto");
@@ -13,6 +13,7 @@ const {
   SUCCESS,
   OK_CODE,
   NO_CONTENT_CODE,
+  FORBIDDEN_CODE,
 } = require("../utils/constants");
 
 const signToken = (id) =>

@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
-const { ROLE_USER, ROLE_ADMIN, MIN_EIGHT_CHARACTER } = require("../utils/constants");
+const {
+  ROLE_USER,
+  ROLE_ADMIN,
+  MIN_EIGHT_CHARACTER,
+} = require("../utils/constants");
 
 const userSchema = new mongoose.Schema(
   {
@@ -56,6 +60,8 @@ const userSchema = new mongoose.Schema(
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
   }
 );
+
+userSchema.index({ email: 1 }, { unique: true });
 
 userSchema.pre("save", async function (next) {
   // this function works only when the password is modified
