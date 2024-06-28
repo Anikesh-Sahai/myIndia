@@ -14,10 +14,19 @@ const orderRouter = require("./routes/orderRouter");
 
 const { UNHANDLED_REJECTION_EVENT } = require("./utils/constants");
 const { urlNotFoundError } = require("./utils/errors");
+const {
+  mockPaymentGateway,
+  mockLogisticsProvider,
+  mockDomainRegistration,
+} = require("./utils/mockIntegrations");
 
 require("dotenv").config({ path: "./config.env" });
 
 const app = express();
+
+mockPaymentGateway();
+mockLogisticsProvider();
+mockDomainRegistration();
 
 mongoose
   .connect(process.env.DATABASE, {
